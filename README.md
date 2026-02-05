@@ -1,9 +1,9 @@
-<div align="center"> <h2><img src="./figures/logo.png" width="64" style="margin-bottom: -4px;"/> 
- <strong>Boosting Large Language Models for Mental Manipulation Detection via Data Augmentation and Distillation</strong></h2>
-
-[![Paper](https://img.shields.io/badge/arXiv-2505.15255-b31b1b.svg)](https://arxiv.org/abs/2505.15255)
-![GitHub Repo stars](https://img.shields.io/github/stars/Yuansheng-Gao/MentalMAD?style=social)
-[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-ReaMent-orange.svg)](https://huggingface.co/datasets/YSGao/ReaMent)
+<div align="center"> <h2>
+ <strong>Boosting Large Language Models for Mental Manipulation Detection via<br>Data Augmentation and Distillation</strong></h2>
+ 
+  [![Paper](https://img.shields.io/badge/arXiv-2505.15255-b31b1b.svg)](https://arxiv.org/abs/2505.15255)
+  ![GitHub Repo stars](https://img.shields.io/github/stars/Yuansheng-Gao/MentalMAD?style=social)
+  [![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-ReaMent-orange.svg)](https://huggingface.co/datasets/YSGao/ReaMent)
 </div>
 
 <p align="center"> <strong>💌 Contact:</strong> <a href="mailto:y.gao@zju.edu.cn">y.gao@zju.edu.cn</a> </p>

@@ -3,7 +3,7 @@
  
   [![Paper](https://img.shields.io/badge/arXiv-2505.15255-b31b1b.svg)](https://arxiv.org/abs/2505.15255)
   ![GitHub Repo stars](https://img.shields.io/github/stars/Yuansheng-Gao/MentalMAD?style=social)
-  [![Dataset](https://img.shields.io/badge/🤗%20HuggingFace-ReaMent-orange.svg)](https://huggingface.co/datasets/YSGao/ReaMent)
+  [![Dataset](https://img.shields.io/badge/🤗%20Dataset-ReaMent-orange.svg)](https://huggingface.co/datasets/YSGao/ReaMent)
 </div>
 
 <p align="center"> <strong>💌 Contact:</strong> <a href="mailto:y.gao@zju.edu.cn">y.gao@zju.edu.cn</a> </p>

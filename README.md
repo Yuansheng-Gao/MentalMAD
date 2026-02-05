@@ -9,6 +9,6 @@
 <p align="center"> <strong>💌 Contact:</strong> <a href="mailto:y.gao@zju.edu.cn">y.gao@zju.edu.cn</a> </p>
 
 <p align="center">
-<img src="./figures/logo.png" align="center" width="90%">
+<img src="./figures/logo.png" align="center" width="60%">
 </p>
 ---

@@ -18,10 +18,6 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 # Define device for PyTorch
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Dataset root path
-dataset_root_path = "/data/gys/finetune_student/dataset/mentalmanip_con.json"
-train_data, valid_data, test_data = load_root_data(dataset_root_path)
-
 # Load pre-trained model
 merged_model = AutoModelForCausalLM.from_pretrained(
     "/data/models/Phi-3.5-mini-instruct/", torch_dtype=torch.bfloat16, trust_remote_code=True

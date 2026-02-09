@@ -122,9 +122,9 @@ if __name__ == "__main__":
 
     with open("./dataset/MentalManip_con_train.json", mode='r', encoding='utf-8') as json_file:
         data = [json.loads(file) for file in json_file]
-    correct_or_incorrect_data_generation(data, "correct", "./data_for_CoCoDistill/MentalManip_con_correct.json")
-    correct_or_incorrect_data_generation(data, "incorrect", "./data_for_CoCoDistill/MentalManip_con_incorrect.json")
+    correct_or_incorrect_data_generation(data, "correct", "./data_for_CoCoDistill/MentalManip_con_correct_data.json")
+    correct_or_incorrect_data_generation(data, "incorrect", "./data_for_CoCoDistill/MentalManip_con_incorrect_data.json")
 
     with open("./data_for_CoCoDistill/MentalManip_con_incorrect.json", mode='r', encoding='utf-8') as json_file:
         incorrect_data = [json.loads(file) for file in json_file]
-    feedback_data_generation(data, incorrect_data, "./data_for_CoCoDistill/MentalManip_con_feedback.json")
+    feedback_data_generation(data, incorrect_data, "./data_for_CoCoDistill/MentalManip_con_feedback_data.json")

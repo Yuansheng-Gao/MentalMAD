@@ -62,10 +62,11 @@ For detailed instructions on how to access or contribute to the dataset, please 
 
 ### 1. Augment Data
 
-Before training the model, preprocess the dataset:
+Before training the model, augment the dataset:
 
 ```bash
-python preprocess_data.py --input <input_data_path> --output <output_data_path>
+python EvoSA.py --input_path <input_data_path> --output_path <output_data_path>
+python complementary_task_generation.py --input <input_data_path> --output <output_data_path>
 ```
 
 ### 2. Train Model
@@ -73,14 +74,14 @@ python preprocess_data.py --input <input_data_path> --output <output_data_path>
 Train the **MentalMAD** model using the preprocessed data:
 
 ```bash
-python train_model.py --data <preprocessed_data_path> --output <model_output_path>
+python main.py --data <preprocessed_data_path> --output <model_output_path>
 ```
 
 ### 3. Run Inference
 
 Once the model is trained, run inference on new data:
 ```bash
-python inference.py --input <input_data_path> --model <trained_model_path> --output <inference_results_path>
+python test.py --input <input_data_path> --model <trained_model_path> --output <inference_results_path>
 ```
 
 ---

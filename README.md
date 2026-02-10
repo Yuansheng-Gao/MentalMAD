@@ -8,6 +8,8 @@
 
 <p align="center"> <strong>💌 Contact:</strong> <a href="mailto:y.gao@zju.edu.cn">y.gao@zju.edu.cn</a> </p>
 
+<p align="center"> MentalMAD is a framework designed to detect mental manipulation in dialogues. It improves LLMs using innovative data augmentation (EvoSA + complementary tasks) and knowledge distillation (CoCoDistill) techniques, specifically crafted for detecting covert, multi-turn manipulative behavior in conversations.</p>
+
 <p align="center">
 <img src="./figures/logo.png" align="center" width="60%">
 </p>

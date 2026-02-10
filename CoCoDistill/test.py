@@ -212,7 +212,7 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--cuda_visible_devices", type=str, default="1")
     parser.add_argument("--dataset_root_path", type=str,
-                        default="/data/gys/finetune_student/dataset/mentalmanip_con.json")
+                        default="./dataset/mentalmanip_con.json")
     parser.add_argument("--test_data_path", type=str,
                         default="./dataset/MentalManip_con_test.json")
     parser.add_argument("--model_path", type=str,

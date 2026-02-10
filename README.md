@@ -60,7 +60,7 @@ For detailed instructions on how to access or contribute to the dataset, please 
 
 ## <a name="usage"></a>⚙️ Usage
 
-### 1. Preprocess Data
+### 1. Augment Data
 
 Before training the model, preprocess the dataset:
 
@@ -91,7 +91,7 @@ python inference.py --input <input_data_path> --model <trained_model_path> --out
 
 EvoSA combines evolutionary operations and speech-act-aware prompting to create new dialogues by selecting distinct utterances from two parent dialogues with the same label. This method preserves label consistency while generating diverse and natural dialogue variants, making it a powerful tool for data augmentation.
 
-### <a name="cocodistill"></a>CoCoDistill: Complementary-Task Knowledge Distillation
+### <a name="cocodistill"></a>CoCoDistill: Complementary-Convergence Distillation
 
 CoCoDistill uses a phase-wise strategy to distill knowledge from a teacher model to a student model. It begins by training on multiple tasks and then progressively focuses on the core task of binary classification, improving the model's ability to detect manipulation-specific cues in dialogues.
 

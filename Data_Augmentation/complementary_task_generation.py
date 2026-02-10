@@ -1,3 +1,4 @@
+import argparse
 from llm_response import send_request
 from tqdm import tqdm
 import jsonlines
@@ -119,12 +120,24 @@ def feedback_data_generation(dataset, incorrect, output_path):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate responses for correct, incorrect, or feedback dialogue analysis")
+    parser.add_argument("--input_path", type=str, default="./dataset/MentalManip_con_train.json", help="Path to the input dataset")
+    parser.add_argument("--output_path", type=str, default="./data_for_CoCoDistill/MentalManip_con_correct_data.json", help="Path to the output file")
+    parser.add_argument("--incorrect_output", type=str, default="./data_for_CoCoDistill/MentalManip_con_incorrect_data.json", help="Path to the incorrect output file")
+    parser.add_argument("--feedback_output", type=str, default="./data_for_CoCoDistill/MentalManip_con_feedback_data.json", help="Path to the feedback output file")
+    parser.add_argument("--data_type", choices=['correct', 'incorrect', 'feedback'], default='correct', help="Specify the type of data to generate ('correct', 'incorrect', or 'feedback')")
+    
+    args = parser.parse_args()
 
-    with open("./dataset/MentalManip_con_train.json", mode='r', encoding='utf-8') as json_file:
+    # Load input data
+    with open(args.input_path, mode='r', encoding='utf-8') as json_file:
         data = [json.loads(file) for file in json_file]
-    correct_or_incorrect_data_generation(data, "correct", "./data_for_CoCoDistill/MentalManip_con_correct_data.json")
-    correct_or_incorrect_data_generation(data, "incorrect", "./data_for_CoCoDistill/MentalManip_con_incorrect_data.json")
+    
+    # Generate data based on the selected data type
+    if args.data_type == 'correct' or args.data_type == 'incorrect':
+        correct_or_incorrect_data_generation(data, args.data_type, args.output_path)
 
-    with open("./data_for_CoCoDistill/MentalManip_con_incorrect.json", mode='r', encoding='utf-8') as json_file:
-        incorrect_data = [json.loads(file) for file in json_file]
-    feedback_data_generation(data, incorrect_data, "./data_for_CoCoDistill/MentalManip_con_feedback_data.json")
+    if args.data_type == 'feedback':
+        with open(args.incorrect_output, mode='r', encoding='utf-8') as json_file:
+            incorrect_data = [json.loads(file) for file in json_file]
+        feedback_data_generation(data, incorrect_data, args.feedback_output)

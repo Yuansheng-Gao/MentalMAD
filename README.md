@@ -70,7 +70,6 @@ python EvoSA.py --input_path ./dataset/MentalManip_con_train.json --output_path 
 python complementary_task_generation.py --input_path ./dataset/MentalManip_con_train.json --output_path ./data_for_CoCoDistill/MentalManip_con_correct_data.json --data_type correct
 python complementary_task_generation.py --input_path ./dataset/MentalManip_con_train.json --output_path ./data_for_CoCoDistill/MentalManip_con_incorrect_data.json --data_type incorrect
 python complementary_task_generation.py --input_path ./dataset/MentalManip_con_train.json --incorrect_output ./data_for_CoCoDistill/MentalManip_con_incorrect_data.json --feedback_output ./data_for_CoCoDistill/MentalManip_con_feedback_data.json --data_type feedback
-
 ```
 
 ### 2. Train Model
@@ -111,9 +110,19 @@ python main.py \
 
 ### 3. Run Inference
 
-Once the model is trained, run inference on new data:
+Once the model is trained, run inference on test data:
 ```bash
-python test.py --input <input_data_path> --model <trained_model_path> --output <inference_results_path>
+python script_name.py \
+    --seed 42 \
+    --cuda_visible_devices "1" \
+    --test_data_path "./dataset/MentalManip_con_test.json" \
+    --model_path "/data/models/Qwen2.5-3B-Instruct/" \
+    --tokenizer_path "/data/models/Qwen2.5-3B-Instruct/" \
+    --lora_root "./MentalManip_con_fine_tuning_res" \
+    --num_lora_epochs 3 \
+    --use_lora_epoch 2 \
+    --output_path "./results/student_test.json" \
+    --mode "ours"
 ```
 
 ---

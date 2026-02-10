@@ -1,3 +1,4 @@
+import argparse
 from llm_response import send_request
 from tqdm import tqdm
 import jsonlines
@@ -16,8 +17,8 @@ def generate_unique_pairs(n, min_val, max_val):
             pairs.add(pair)
     
     return list(pairs)
-    
-def EvoSA_get_child_dialogue(dataset,label,max_k,output_path):
+
+def EvoSA_get_child_dialogue(dataset, label, max_k, output_path):
     parent_data = []
 
     for i in tqdm(range(len(dataset))):
@@ -29,9 +30,9 @@ def EvoSA_get_child_dialogue(dataset,label,max_k,output_path):
     pairs = generate_unique_pairs(n, min_val, max_val)
 
     k = 0
-    for i,j in tqdm(pairs):
+    for i, j in tqdm(pairs):
         k += 1
-        if k > max_k:break
+        if k > max_k: break
         system_prompt = f'''You are an advanced dialogue analysis agent. Your task is to generate a new dialogue that is different from Dialogue1 and Dialogue2.
         
         ### Generation process:
@@ -57,10 +58,10 @@ def EvoSA_get_child_dialogue(dataset,label,max_k,output_path):
             "temperature": 0,
             "max_tokens": 1024
         }
-        response = send_request(message,model_name,model_config)
-        response = response.replace("Here is the new dialogue:\n\n","")
+        response = send_request(message, model_name, model_config)
+        response = response.replace("Here is the new dialogue:\n\n", "")
 
-        child_data={
+        child_data = {
             "id1": parent_data[i]["id"],
             "id2": parent_data[j]["id"],
             "manipulative": label,
@@ -70,8 +71,7 @@ def EvoSA_get_child_dialogue(dataset,label,max_k,output_path):
         with jsonlines.open(output_path, mode='a') as writer:
             writer.write(child_data)
 
-
-def naive_get_child_dialogue(dataset,label,max_k,output_path):
+def naive_get_child_dialogue(dataset, label, max_k, output_path):
     parent_data = []
 
     for i in tqdm(range(len(dataset))):
@@ -83,9 +83,9 @@ def naive_get_child_dialogue(dataset,label,max_k,output_path):
     pairs = generate_unique_pairs(n, min_val, max_val)
 
     k = 0
-    for i,j in tqdm(pairs):
+    for i, j in tqdm(pairs):
         k += 1
-        if k > max_k:break
+        if k > max_k: break
         system_prompt = f'''You are an advanced dialogue analysis agent. Your task is to generate a new dialogue that is different from Dialogue1 and Dialogue2.
         
         ### Generation process:
@@ -103,15 +103,15 @@ def naive_get_child_dialogue(dataset,label,max_k,output_path):
         ### Dialogue2:
         {parent_data[j]["dialogue"]}'''
 
-        message = [{"role": "system","content": system_prompt},{"role": "user","content": user_prompt}]
+        message = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
         model_config = {
             "temperature": 0,
             "max_tokens": 1024
         }
-        response = send_request(message,model_name,model_config)
-        response = response.replace("Here is the new dialogue:\n\n","")
+        response = send_request(message, model_name, model_config)
+        response = response.replace("Here is the new dialogue:\n\n", "")
 
-        child_data={
+        child_data = {
             "id1": parent_data[i]["id"],
             "id2": parent_data[j]["id"],
             "manipulative": label,
@@ -122,17 +122,21 @@ def naive_get_child_dialogue(dataset,label,max_k,output_path):
             writer.write(child_data)
 
 if __name__ == "__main__":
-    input_path = "./dataset/MentalManip_con_train.json"
-    output_path = "./data_for_CoCoDistill/MentalManip_con_EvoSA_data.json"
-    yes_child_num = 300
-    no_child_num = 189
+    parser = argparse.ArgumentParser(description="Generate child dialogues based on manipulative dialogues")
+    parser.add_argument("--input_path", type=str, default="./dataset/MentalManip_con_train.json", help="Path to the input dataset")
+    parser.add_argument("--output_path", type=str, default="./data_for_CoCoDistill/MentalManip_con_EvoSA_data.json", help="Path to the output file")
+    parser.add_argument("--yes_child_num", type=int, default=300, help="Number of positive manipulative child dialogues to generate")
+    parser.add_argument("--no_child_num", type=int, default=189, help="Number of negative manipulative child dialogues to generate")
+    parser.add_argument("--method", choices=['naive', 'EvoSA'], default='EvoSA', help="Choose the method to generate child dialogues")
 
-    with open(input_path, mode='r', encoding='utf-8') as json_file:
+    args = parser.parse_args()
+
+    with open(args.input_path, mode='r', encoding='utf-8') as json_file:
         train_data = [json.loads(file) for file in json_file]
 
-    EvoSA_get_child_dialogue(train_data,"1", yes_child_num, output_path)
-    EvoSA_get_child_dialogue(train_data,"0", no_child_num, output_path)
-
-    # Comparator
-    # naive_get_child_dialogue(train_data, "1", yes_num,output_path)
-    # naive_get_child_dialogue(train_data, "0", no_num,output_path)
+    if args.method == 'EvoSA':
+        EvoSA_get_child_dialogue(train_data, "1", args.yes_child_num, args.output_path)
+        EvoSA_get_child_dialogue(train_data, "0", args.no_child_num, args.output_path)
+    elif args.method == 'naive':
+        naive_get_child_dialogue(train_data, "1", args.yes_child_num, args.output_path)
+        naive_get_child_dialogue(train_data, "0", args.no_child_num, args.output_path)

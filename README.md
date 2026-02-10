@@ -75,10 +75,38 @@ python complementary_task_generation.py --input_path ./dataset/MentalManip_con_t
 
 ### 2. Train Model
 
-Train the **MentalMAD** model using the preprocessed data:
+Train the model using the augmented data:
 
 ```bash
-python main.py --data <preprocessed_data_path> --output <model_output_path>
+python main.py \
+    --seed 42 \
+    --cuda_visible_devices "0,1" \
+    --model_path "/data/models/Qwen2.5-3B-Instruct/" \
+    --tokenizer_path "/data/models/Qwen2.5-3B-Instruct/" \
+    --save_path "./MentalManip_con_fine_tuning_res" \
+    --train_data_path "./dataset/MentalManip_con_train.json" \
+    --valid_data_path "./dataset/MentalManip_con_valid.json" \
+    --correct_data_path "./data_for_CoCoDistill/MentalManip_con_correct_data.json" \
+    --incorrect_data_path "./data_for_CoCoDistill/MentalManip_con_incorrect_data.json" \
+    --feedback_data_path "./data_for_CoCoDistill/MentalManip_con_feedback_data.json" \
+    --EvoSA_train_data_path "./data_for_CoCoDistill/MentalManip_con_EvoSA_data.json" \
+    --EvoSA_correct_data_path "./data_for_CoCoDistill/MentalManip_con_EvoSA_correct_data.json" \
+    --EvoSA_incorrect_data_path "./data_for_CoCoDistill/MentalManip_con_EvoSA_incorrect_data.json" \
+    --EvoSA_feedback_data_path "./data_for_CoCoDistill/MentalManip_con_EvoSA_feedback_data.json" \
+    --r 8 \
+    --lora_alpha 16 \
+    --target_modules '["q_proj", "v_proj"]' \
+    --lora_dropout 0.05 \
+    --bias "none" \
+    --task_type "CAUSAL_LM" \
+    --train_batch_size 4 \
+    --gradient_accumulation_steps 4 \
+    --learning_rate 1e-5 \
+    --weight_decay 0.01 \
+    --valid_batch_size 16 \
+    --train_max_length 1500 \
+    --valid_max_length 1000 \
+    --num_epochs_per_phase 1
 ```
 
 ### 3. Run Inference

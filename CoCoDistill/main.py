@@ -279,8 +279,8 @@ if __name__ == "__main__":
     parser.add_argument("--tokenizer_path", type=str, default="/data/models/Qwen2.5-3B-Instruct/")
     parser.add_argument("--save_path", type=str, default="./MentalManip_con_fine_tuning_res")
 
-    parser.add_argument("--train_data_path", type=str, default="./dataset/train_row_data_con.json")
-    parser.add_argument("--valid_data_path", type=str, default="./dataset/valid_row_data_con.json")
+    parser.add_argument("--train_data_path", type=str, default="./dataset/MentalManip_con_train.json")
+    parser.add_argument("--valid_data_path", type=str, default="./dataset/MentalManip_con_valid.json")
     parser.add_argument("--correct_data_path", type=str, default="./data_for_KD/MentalManip_con_correct_data.json")
     parser.add_argument("--incorrect_data_path", type=str, default="./data_for_KD/MentalManip_con_incorrect_data.json")
     parser.add_argument("--feedback_data_path", type=str, default="./data_for_KD/MentalManip_con_feedback_data.json")

@@ -156,7 +156,7 @@ CoCoDistill uses a phase-wise strategy to distill knowledge from a teacher model
 ### Evaluation of EvoSA’s Contribution
 
 <p align="left">
-<img src="./figures/evosa_contribution.png" align="center" width="35%">
+<img src="./figures/evosa_contribution.png" align="center" width="37%">
 </p>
 
 ---

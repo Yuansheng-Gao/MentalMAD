@@ -101,16 +101,21 @@ CoCoDistill uses a phase-wise strategy to distill knowledge from a teacher model
 
 ### Comparison with Baselines
 
-<p align="center">
-<img src="./figures/comparison.png" align="center" width="100%">
+<p align="left">
+<img src="./figures/comparison.png" align="left" width="100%">
 </p>
 
 ### Performance of Models Across Different Sizes
 
-<p align="center">
-<img src="./figures/different_size" align="center" width="50%">
+<p align="left">
+<img src="./figures/different_size.png" align="left" width="50%">
 </p>
 
+### Evaluation of EvoSA’s Contribution
+
+<p align="left">
+<img src="./figures/evosa_contribution.png" align="left" width="50%">
+</p>
 ---
 
 ## <a name="license"></a>📝 License

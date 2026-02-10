@@ -105,6 +105,12 @@ CoCoDistill uses a phase-wise strategy to distill knowledge from a teacher model
 <img src="./figures/comparison.png" align="center" width="100%">
 </p>
 
+### Performance of Models Across Different Sizes
+
+<p align="center">
+<img src="./figures/different_size" align="center" width="50%">
+</p>
+
 ---
 
 ## <a name="license"></a>📝 License

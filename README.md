@@ -54,7 +54,7 @@ pip install -r requirements.txt
 
 **ReaMent** is a dataset consisting of 5,000 human-annotated dialogues sourced from unscripted web videos. This dataset was specifically constructed to help address the lack of real-world data for mental manipulation detection.
 
-For detailed instructions on how to access or contribute to the dataset, please refer to the [dataset documentation](#).
+You can access the dataset on [Hugging Face](https://huggingface.co/datasets/YSGao/ReaMent).
 
 ---
 

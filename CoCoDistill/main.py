@@ -281,14 +281,14 @@ if __name__ == "__main__":
 
     parser.add_argument("--train_data_path", type=str, default="./dataset/MentalManip_con_train.json")
     parser.add_argument("--valid_data_path", type=str, default="./dataset/MentalManip_con_valid.json")
-    parser.add_argument("--correct_data_path", type=str, default="./data_for_KD/MentalManip_con_correct_data.json")
-    parser.add_argument("--incorrect_data_path", type=str, default="./data_for_KD/MentalManip_con_incorrect_data.json")
-    parser.add_argument("--feedback_data_path", type=str, default="./data_for_KD/MentalManip_con_feedback_data.json")
+    parser.add_argument("--correct_data_path", type=str, default="./data_for_CoCoDistill/MentalManip_con_correct_data.json")
+    parser.add_argument("--incorrect_data_path", type=str, default="./data_for_CoCoDistill/MentalManip_con_incorrect_data.json")
+    parser.add_argument("--feedback_data_path", type=str, default="./data_for_CoCoDistill/MentalManip_con_feedback_data.json")
 
-    parser.add_argument("--EvoSA_train_data_path", type=str, default="./data_for_KD/MentalManip_con_EvoSA_data.json")
-    parser.add_argument("--EvoSA_correct_data_path", type=str, default="./data_for_KD/MentalManip_con_EvoSA_correct_data.json")
-    parser.add_argument("--EvoSA_incorrect_data_path", type=str, default="./data_for_KD/MentalManip_con_EvoSA_incorrect_data.json")
-    parser.add_argument("--EvoSA_feedback_data_path", type=str, default="./data_for_KD/MentalManip_con_EvoSA_feedback_data.json")
+    parser.add_argument("--EvoSA_train_data_path", type=str, default="./data_for_CoCoDistill/MentalManip_con_EvoSA_data.json")
+    parser.add_argument("--EvoSA_correct_data_path", type=str, default="./data_for_CoCoDistill/MentalManip_con_EvoSA_correct_data.json")
+    parser.add_argument("--EvoSA_incorrect_data_path", type=str, default="./data_for_CoCoDistill/MentalManip_con_EvoSA_incorrect_data.json")
+    parser.add_argument("--EvoSA_feedback_data_path", type=str, default="./data_for_CoCoDistill/MentalManip_con_EvoSA_feedback_data.json")
 
     parser.add_argument("--r", type=int, default=8)
     parser.add_argument("--lora_alpha", type=int, default=16)

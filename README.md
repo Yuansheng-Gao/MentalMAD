@@ -71,6 +71,7 @@ python complementary_task_generation.py --input_path ./dataset/MentalManip_con_t
 python complementary_task_generation.py --input_path ./dataset/MentalManip_con_train.json --output_path ./data_for_CoCoDistill/MentalManip_con_incorrect_data.json --data_type incorrect
 python complementary_task_generation.py --input_path ./dataset/MentalManip_con_train.json --incorrect_output ./data_for_CoCoDistill/MentalManip_con_incorrect_data.json --feedback_output ./data_for_CoCoDistill/MentalManip_con_feedback_data.json --data_type feedback
 ```
+The complete augmented data can be found on [Hugging Face](https://huggingface.co/datasets/YSGao/MentalMAD_Augmented_Data).
 
 ### 2. Train Model
 

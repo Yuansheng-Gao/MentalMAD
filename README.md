@@ -66,7 +66,10 @@ Before training the model, augment the dataset:
 
 ```bash
 python EvoSA.py --input_path <input_data_path> --output_path <output_data_path>
-python complementary_task_generation.py --input <input_data_path> --output <output_data_path>
+python complementary_task_generation.py --input_path ./dataset/MentalManip_con_train.json --output_path ./data_for_CoCoDistill/MentalManip_con_correct_data.json --data_type correct
+python complementary_task_generation.py --input_path ./dataset/MentalManip_con_train.json --output_path ./data_for_CoCoDistill/MentalManip_con_incorrect_data.json --data_type incorrect
+python complementary_task_generation.py --input_path ./dataset/MentalManip_con_train.json --incorrect_output ./data_for_CoCoDistill/MentalManip_con_incorrect_data.json --feedback_output ./data_for_CoCoDistill/MentalManip_con_feedback_data.json --data_type feedback
+
 ```
 
 ### 2. Train Model

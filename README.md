@@ -101,12 +101,9 @@ CoCoDistill uses a phase-wise strategy to distill knowledge from a teacher model
 
 ### Comparison with Baselines
 
-| Model               | Accuracy | F1-macro | F1-weighted |
-|---------------------|----------|----------|-------------|
-| **MentalMAD (Ours)** | 75.6%    | 69.5%    | 74.8%       |
-| DeepSeek-R1         | 73.9%    | 57.1%    | 67.4%       |
-| GPT-5 Chat          | 72.6%    | 57.0%    | 66.9%       |
-| Claude-Haiku 4.5    | 74.6%    | 64.9%    | 71.9%       |
+<p align="center">
+<img src="./figures/comparison.png" align="center" width="100%">
+</p>
 
 ---
 

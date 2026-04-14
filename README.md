@@ -179,14 +179,12 @@ For questions, contributions, or inquiries, feel free to reach out:
 If you use this repository or the ReaMent dataset in your research, please cite the following paper:
 
 ```
-@misc{gao2026boostinglargelanguagemodels,
-      title={Boosting Large Language Models for Mental Manipulation Detection via Data Augmentation and Distillation}, 
-      author={Yuansheng Gao and Peng Gao and Han Bao and Bin Li and Jixiang Luo and Zonghui Wang and Wenzhi Chen},
-      year={2026},
-      eprint={2505.15255},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2505.15255}, 
+@inproceedings{gao2026boosting,
+  title={Boosting Large Language Models for Mental Manipulation Detection via Data Augmentation and Distillation},
+  author={Gao, Yuansheng and Gao, Peng and Bao, Han and Li, Bin and Luo, Jixiang and Wang, Zonghui and Chen, Wenzhi},
+  booktitle={Proceedings of the ACM Web Conference 2026},
+  pages={9033--9043},
+  year={2026}
 }
 ```
 
